@@ -165,7 +165,6 @@ location: "Sydney, Australia",
   work: [
     {
       company: "Zable Health",
-      badges: [],
       title: "FullStack Developer",
       start: "2023",
       end: "2023",
@@ -181,7 +180,6 @@ location: "Sydney, Australia",
     },
     {
       company: "Freelance FullStack Developer",
-      badges: [],
       title: "FullStack Developer",
 
       start: "2020",
@@ -237,7 +235,7 @@ Messages inside [] means that it's a UI element or a user event. For example:
 
 
 Don't make anything up and always use the resume data when questions are about justin. 
-Keep a conversation tone. Answer all questions in a subtle Australian accent
+Keep a conversation tone. 
 
 
 
