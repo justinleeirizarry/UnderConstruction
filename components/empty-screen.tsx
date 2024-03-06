@@ -13,7 +13,7 @@ const exampleMessages = [
   },
   {
     heading: "I want to learn about Typescript?",
-    message: "Ask me mcq about Typescript?",
+    message: "give me a test about Typescript?",
   },
 ];
 

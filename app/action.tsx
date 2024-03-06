@@ -24,73 +24,6 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || "",
 });
 
-async function confirmPurchase(symbol: string, price: number, amount: number) {
-  "use server";
-
-  const aiState = getMutableAIState<typeof AI>();
-
-  const purchasing = createStreamableUI(
-    <div className="inline-flex items-start gap-1 md:items-center">
-      {spinner}
-      <p className="mb-2">
-        Purchasing {amount} ${symbol}...
-      </p>
-    </div>
-  );
-
-  const systemMessage = createStreamableUI(null);
-
-  runAsyncFnWithoutBlocking(async () => {
-    // You can update the UI at any point.
-    await sleep(1000);
-
-    purchasing.update(
-      <div className="inline-flex items-start gap-1 md:items-center">
-        {spinner}
-        <p className="mb-2">
-          Purchasing {amount} ${symbol}... working on it...
-        </p>
-      </div>
-    );
-
-    await sleep(1000);
-
-    purchasing.done(
-      <div>
-        <p className="mb-2">
-          You have successfully purchased {amount} ${symbol}. Total cost:{" "}
-          {formatNumber(amount * price)}
-        </p>
-      </div>
-    );
-
-    systemMessage.done(
-      <SystemMessage>
-        You have purchased {amount} shares of {symbol} at ${price}. Total cost ={" "}
-        {formatNumber(amount * price)}.
-      </SystemMessage>
-    );
-
-    aiState.done([
-      ...aiState.get(),
-      {
-        role: "system",
-        content: `[User has purchased ${amount} shares of ${symbol} at ${price}. Total cost = ${
-          amount * price
-        }]`,
-      },
-    ]);
-  });
-
-  return {
-    purchasingUI: purchasing.value,
-    newMessage: {
-      id: Date.now(),
-      display: systemMessage.value,
-    },
-  };
-}
-
 async function submitUserMessage(content: string) {
   "use server";
 
@@ -224,13 +157,13 @@ location: "Sydney, Australia",
     "Figma",
   ],
 
-You and the user can discuss about different topics related to  and the user can answer questions about them in the form of MCQ questions.
+You and the user can discuss about different topics related to the technologies in justin's resume and the user can answer questions about them in the form of Test questions.
 
 Messages inside [] means that it's a UI element or a user event. For example:
-- "[MCQs are of topic = X]" means that an interface displays MCQ questions for a topic.
-- "[User has selected MCQ answer = A]" means the user has clicked on answer a out of A, B, C, D as the answer to the MCQ.
+- "[Tests are of topic = X]" means that an interface displays Test questions for a topic.
+- "[User has selected Test answer = A]" means the user has clicked on answer a out of A, B, C, D as the answer to the Test.
 
-- If the user requests MCQ answer of a specific CS topic, call \`show_mcq_questions\` to show the questions UI.
+- If the user requests Test answer of a specific CS topic, call \`show_Test_questions\` to show the questions UI.
 
 
 
@@ -249,9 +182,9 @@ Keep a conversation tone.
     ],
     functions: [
       {
-        name: "show_mcq_question",
+        name: "show_Test_question",
         description:
-          "Show MCQ question for a specific topic. Use this to show four MCQ questions to the user.",
+          "Show Test question for a specific topic. Use this to show four Test questions to the user.",
         parameters: z.object({
           topic: z.string().describe("The name of the topic"),
           question: z
@@ -294,7 +227,7 @@ Keep a conversation tone.
   });
 
   completion.onFunctionCall(
-    "show_mcq_question",
+    "show_Test_question",
     async ({ topic, question, options, answer }) => {
       reply.update(
         <BotCard>
@@ -319,8 +252,8 @@ Keep a conversation tone.
         ...aiState.get(),
         {
           role: "function",
-          name: "show_mcq_question",
-          content: `[UI for topic ${topic} for the question ${question} with MCQ options 
+          name: "show_Test_question",
+          content: `[UI for topic ${topic} for the question ${question} with Test options 
           ${options} and the answer, ${answer}
         ]`,
         },
@@ -351,7 +284,6 @@ const initialUIState: {
 export const AI = createAI({
   actions: {
     submitUserMessage,
-    confirmPurchase,
   },
   initialUIState,
   initialAIState,
