@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "@/components/external-link";
 import { IconArrowRight } from "@/components/ui/icons";
+import Preloader from "./loader";
 
 const exampleMessages = [
   {
@@ -14,6 +15,10 @@ const exampleMessages = [
   {
     heading: "I want to learn about Typescript?",
     message: "give me a test about Typescript?",
+  },
+  {
+    heading: "Does he have a dog?",
+    message: "I want to see pictures of coco?",
   },
 ];
 

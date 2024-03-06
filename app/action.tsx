@@ -3,22 +3,15 @@ import "server-only";
 import { createAI, createStreamableUI, getMutableAIState } from "ai/rsc";
 import OpenAI from "openai";
 
-import {
-  BotCard,
-  BotMessage,
-  SystemMessage,
-} from "@/components/llm-mcq/message";
+import { BotCard, BotMessage } from "@/components/llm-mcq/message";
+import ImageComponent from "@/components/image";
 
 import { MCQ } from "@/components/llm-mcq/mcq";
 import { MCQSkeleton } from "@/components/llm-mcq/mcq-skeleton";
 import { spinner } from "@/components/llm-mcq/spinner";
-import {
-  runAsyncFnWithoutBlocking,
-  sleep,
-  formatNumber,
-  runOpenAICompletion,
-} from "@/lib/utils";
+import { sleep, runOpenAICompletion } from "@/lib/utils";
 import { z } from "zod";
+import PreLoader from "@/components/loader";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || "",
@@ -37,7 +30,9 @@ async function submitUserMessage(content: string) {
   ]);
 
   const reply = createStreamableUI(
-    <BotMessage className="items-center">{spinner}</BotMessage>
+    <BotMessage className="items-center">
+      <PreLoader />
+    </BotMessage>
   );
 
   const completion = runOpenAICompletion(openai, {
@@ -164,6 +159,7 @@ Messages inside [] means that it's a UI element or a user event. For example:
 - "[User has selected Test answer = A]" means the user has clicked on answer a out of A, B, C, D as the answer to the Test.
 
 - If the user requests Test answer of a specific CS topic, call \`show_Test_questions\` to show the questions UI.
+- If the user requests a picture of justins dog coco, call \`show_image\` to show images of coco.
 
 
 
@@ -182,7 +178,19 @@ Keep a conversation tone.
     ],
     functions: [
       {
-        name: "show_Test_question",
+        name: "show_image",
+        description: "show use image of justins dog.",
+        parameters: z.object({
+          image: z.array(
+            z.object({
+              coco: z.string().describe("picture of justins dog coco"),
+            })
+          ),
+        }),
+      },
+
+      {
+        name: "show_test_question",
         description:
           "Show Test question for a specific topic. Use this to show four Test questions to the user.",
         parameters: z.object({
@@ -226,8 +234,33 @@ Keep a conversation tone.
     }
   });
 
+  completion.onFunctionCall("show_image", async () => {
+    reply.update(
+      <BotCard>
+        <PreLoader />
+      </BotCard>
+    );
+
+    await sleep(1000);
+
+    reply.done(
+      <BotCard>
+        <ImageComponent />
+      </BotCard>
+    );
+
+    aiState.done([
+      ...aiState.get(),
+      {
+        role: "function",
+        name: "show_image",
+        content: `[image of justins dog coco]`,
+      },
+    ]);
+  });
+
   completion.onFunctionCall(
-    "show_Test_question",
+    "show_test_question",
     async ({ topic, question, options, answer }) => {
       reply.update(
         <BotCard>
@@ -252,7 +285,7 @@ Keep a conversation tone.
         ...aiState.get(),
         {
           role: "function",
-          name: "show_Test_question",
+          name: "show_test_question",
           content: `[UI for topic ${topic} for the question ${question} with Test options 
           ${options} and the answer, ${answer}
         ]`,
