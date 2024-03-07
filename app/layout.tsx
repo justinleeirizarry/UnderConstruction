@@ -10,13 +10,13 @@ import { Header } from "@/components/header";
 import { Providers } from "@/components/providers";
 
 const meta = {
-  title: "AI RSC Portfolio",
+  title: "AI RSC Portfolio for Justin Irizarry",
   description: "Resume chatbot Next.js and Vercel AI SDK.",
 };
 export const metadata: Metadata = {
   ...meta,
   title: {
-    default: "AI RSC Portfolio",
+    default: "Justin Irizarry",
     template: `%s - AI RSC Portfolio`,
   },
   icons: {
