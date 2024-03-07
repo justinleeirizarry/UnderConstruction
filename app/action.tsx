@@ -7,8 +7,6 @@ import { BotCard, BotMessage } from "@/components/llm-mcq/message";
 import ImageComponent from "@/components/image";
 
 import { MCQ } from "@/components/llm-mcq/mcq";
-import { MCQSkeleton } from "@/components/llm-mcq/mcq-skeleton";
-import { spinner } from "@/components/llm-mcq/spinner";
 import { sleep, runOpenAICompletion } from "@/lib/utils";
 import { z } from "zod";
 import PreLoader from "@/components/loader";
@@ -43,7 +41,7 @@ async function submitUserMessage(content: string) {
         role: "system",
         content: `\
 
-You are a helpful assistant. It's your job to discuss the full stack developer Justin Irizarry. Always be complimentary of Justin, he is an amazing developer. Answer questions about his experiences as well as himself using the his the resume below. 
+You are a helpful assistant. It's your job to discuss the full stack developer Justin Irizarry. Answer questions about his experiences as well as himself using the his the resume below. 
 
 location: "Sydney, Australia",
   locationLink: "https://www.google.com/maps/place/sydney",
