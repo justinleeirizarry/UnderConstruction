@@ -28,20 +28,21 @@ export function EmptyScreen({
 }) {
   return (
     <div className="mx-auto max-w-2xl px-4">
-      <h1 className="  pt-8 text-5xl font-black mb-4 ">
+      <h1 className="  pt-8 text-4xl font-black mb-4 ">
         Justin Irizarry{" "}
         <span className="text-xl text-muted-foreground ">is a</span>
       </h1>
-      <h2 className=" text-[7.5rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500  tracking-tight leading-[5.5rem]  mb-2 ">
-        <span className="">FullStack</span> <br />
-        <span className="">Developer.</span>
+      <h2 className=" lg:text-8xl md:text-8xl text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500  mb-2">
+        <span>FullStack</span> <br />
+        <span>Developer.</span>
       </h2>
-      <div className="rounded-3xl border  bg-background p-8 mb-4">
+
+      <div className="rounded-3xl border  bg-background p-8 mb-4 sm:w-full">
         <p className="mb-2 leading-normal text-muted-foreground">
           This website is under construction. For now you can have a chat
         </p>
 
-        <div className="mt-4 flex flex-col items-start space-y-2 mb-4">
+        <div className="mt-4 flex flex-col items-start space-y-2 mb-4 sm:text-center">
           {exampleMessages.map((message, index) => (
             <Button
               key={index}
@@ -51,7 +52,7 @@ export function EmptyScreen({
                 submitMessage(message.message);
               }}
             >
-              <IconArrowRight className="mr-2 text-muted-foreground" />
+              <IconArrowRight className="mr-2 text-muted-foreground " />
               {message.heading}
             </Button>
           ))}

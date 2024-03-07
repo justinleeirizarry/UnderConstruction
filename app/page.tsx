@@ -15,7 +15,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { IconArrowElbow, IconCopy } from "@/components/ui/icons";
+import { IconArrowElbow, IconPlus } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 import { ChatList } from "@/components/chat-list";
 import { EmptyScreen } from "@/components/empty-screen";
@@ -52,7 +52,7 @@ export default function Page() {
   }, [inputRef]);
 
   return (
-    <div className="">
+    <div>
       <div className="pb-[200px] pt-4 md:pt-10">
         {messages.length ? (
           <>
@@ -81,7 +81,7 @@ export default function Page() {
         )}
         <ChatScrollAnchor trackVisibility={true} />
       </div>
-      <div className="fixed inset-x-0 bottom-0 w-full bg-gradient-to-b from-muted/30 from-0% to-muted/30 to-50% duration-300 ease-in-out animate-in dark:from-background/10 dark:from-10% dark:to-background/80 peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px] ">
+      <div className="fixed inset-x-0 bottom-0 w-full bg-gradient-to-b from-muted/30 from-0% to-muted/30 to-50% duration-300 ease-in-out animate-in dark:from-background/10 dark:from-10% dark:to-background/80 peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px]">
         <div className="mx-auto sm:max-w-2xl sm:px-4">
           <div className="px-4 py-2 space-y-4 border-t shadow-lg bg-background sm:rounded-t-xl sm:border md:py-4">
             <form
@@ -115,12 +115,12 @@ export default function Page() {
                     responseMessage,
                   ]);
                 } catch (error) {
-                  // add error toast justin.
+                  // add Toast Justin
                   console.error(error);
                 }
               }}
             >
-              <div className="relative flex flex-col w-full px-8 overflow-hidden max-h-60 grow bg-background sm:rounded-md sm:border sm:px-12 border-none">
+              <div className="relative flex flex-col w-full px-8 overflow-hidden max-h-60 grow bg-background sm:rounded-md sm:border sm:px-12">
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button
@@ -132,7 +132,7 @@ export default function Page() {
                         window.location.reload();
                       }}
                     >
-                      <IconCopy />
+                      <IconPlus />
                       <span className="sr-only">New Chat</span>
                     </Button>
                   </TooltipTrigger>
@@ -153,13 +153,12 @@ export default function Page() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                 />
-                <div className="absolute right-0 top-3 sm:right-4">
+                <div className="absolute right-0 top-4 sm:right-4">
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button
                         type="submit"
                         size="icon"
-                        className="rounded-2xl w-[9rem] h-10"
                         disabled={inputValue === ""}
                       >
                         <IconArrowElbow />
