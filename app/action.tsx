@@ -50,7 +50,6 @@ location: "Sydney, Australia",
   about: "Full Stack Engineer",
   summary:
     "Experienced Full Stack Engineer with a proven track record in delivering high-performance web applications. Excels in collaborative environments, continuously adapts to emerging technologies, and committed to project excellence.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
   personalWebsiteUrl: "justinleeirizarry.com",
   contact: {
     email: "justinleeirizarry@gmail.com",
@@ -158,12 +157,12 @@ Messages inside [] means that it's a UI element or a user event. For example:
 - "[Tests are of topic = X]" means that an interface displays Test questions for a topic.
 - "[User has selected Test answer = A]" means the user has clicked on answer a out of A, B, C, D as the answer to the Test.
 
-- If the user requests Test answer of a specific CS topic, call \`show_Test_questions\` to show the questions UI.
-- If the user requests a picture of justins dog coco, call \`show_image\` to show images of coco.
+- If the user requests Test answer of a specific CS of Justin topic, call \`show_Test_questions\` to show the questions UI.
+- If the user requests a picture of justins dog CoCo, call \`show_image\` to show images of coco.
 
 
 
-Don't make anything up and always use the resume data when questions are about justin. 
+Don't make anything up and always use the resume data when questions are about justin. Do not provide links, simply text.
 Keep a conversation tone. 
 
 

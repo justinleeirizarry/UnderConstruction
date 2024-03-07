@@ -2,8 +2,9 @@ import Link from "next/link";
 
 import {
   IconGitHub,
+  IconMail,
   IconSeparator,
-  IconSparkles,
+  IconShare,
   IconVercel,
 } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
@@ -21,27 +22,42 @@ export async function Header() {
         </Link>
       </span>
       <div className="flex items-center justify-end space-x-2">
-        <Button variant="outline" asChild>
+        <Button className="rounded-xl" asChild>
           <a
             target="_blank"
-            href="https://github.com/vercel/ai/tree/main/examples/next-ai-rsc"
+            href="https://resume.justinleeirizarry.com/"
+            rel="noopener noreferrer"
+          >
+            <IconShare />
+            <span className="hidden ml-2 md:flex text-md font-bold">
+              Resume
+            </span>
+          </a>
+        </Button>
+        <Button className="rounded-xl" asChild>
+          <a
+            target="_blank"
+            href="https://github.com/justinleeirizarry"
             rel="noopener noreferrer"
           >
             <IconGitHub />
-            <span className="hidden ml-2 md:flex">GitHub</span>
+            <span className="hidden ml-2 md:flex text-md font-bold">
+              Github
+            </span>
           </a>
         </Button>
-
-        {/* <Button asChild>
+        <Button className="rounded-xl" asChild>
           <a
-            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fai%2Fblob%2Fmain%2Fexamples%2Fnext-ai-rsc&env=OPENAI_API_KEY&envDescription=OpenAI+API+Key&envLink=https%3A%2F%2Fplatform.openai.com%2Fapi-keys"
             target="_blank"
+            href="mailto:justinleeirizarry@gmail.com"
+            rel="noopener noreferrer"
           >
-            <IconVercel className="mr-2" />
-            <span className="hidden sm:block">Deploy to Vercel</span>
-            <span className="sm:hidden">Deploy</span>
+            <IconMail />
+            <span className="hidden ml-2 md:flex text-md font-bold">
+              Contact
+            </span>
           </a>
-        </Button> */}
+        </Button>
       </div>
     </header>
   );

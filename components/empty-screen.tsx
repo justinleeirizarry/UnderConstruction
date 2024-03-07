@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "@/components/external-link";
+
 import { IconArrowRight } from "@/components/ui/icons";
-import Preloader from "./loader";
 
 const exampleMessages = [
   {
@@ -29,17 +28,20 @@ export function EmptyScreen({
 }) {
   return (
     <div className="mx-auto max-w-2xl px-4">
-      <div className="rounded-lg border bg-background p-8 mb-4">
-        <h1 className="mb-2 text-lg font-semibold">
-          Welcome Justin Irizarry's website.
-        </h1>
+      <h1 className="  pt-8 text-5xl font-black ">
+        Justin Irizarry{" "}
+        <span className="text-xl text-muted-foreground ">is a</span>
+      </h1>
+      <h2 className=" text-[7.5rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500  tracking-tight leading-[5.5rem]  mb-2 ">
+        <span className="">FullStack</span> <br />
+        <span className="">Developer.</span>
+      </h2>
+      <div className="rounded-3xl border  bg-background p-8 mb-4">
         <p className="mb-2 leading-normal text-muted-foreground">
-          This is a demo of an interactive website to discuss Justin.
-          Hallucinations can happen, please see the actual resume. This website
-          is under construction.
+          This website is under construction. For now you can chat with my
+          resume.
         </p>
 
-        <p className="leading-normal text-muted-foreground">Try an example:</p>
         <div className="mt-4 flex flex-col items-start space-y-2 mb-4">
           {exampleMessages.map((message, index) => (
             <Button
@@ -54,6 +56,17 @@ export function EmptyScreen({
               {message.heading}
             </Button>
           ))}
+
+          <Button variant="link" className="h-auto p-0 text-base">
+            <IconArrowRight className="mr-2 text-muted-foreground" />
+            <a
+              target="_blank"
+              href="https://resume.justinleeirizarry.com/"
+              rel="noopener noreferrer"
+            >
+              Go straight to his resume
+            </a>
+          </Button>
         </div>
       </div>
     </div>
