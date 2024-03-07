@@ -105,7 +105,7 @@ export function MCQ({
                 ]);
               }}
             >
-              Justin Would have answered right.
+              Justin would have gotten this correct.
             </Button>
           ) : null}
         </div>
