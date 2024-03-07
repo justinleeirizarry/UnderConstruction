@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import {
   IconGitHub,
-  IconMail,
+  IconMessage,
   IconSeparator,
   IconShare,
   IconVercel,
@@ -52,7 +52,7 @@ export async function Header() {
             href="mailto:justinleeirizarry@gmail.com"
             rel="noopener noreferrer"
           >
-            <IconMail />
+            <IconMessage />
             <span className="hidden ml-2 md:flex text-md font-bold">
               Contact
             </span>

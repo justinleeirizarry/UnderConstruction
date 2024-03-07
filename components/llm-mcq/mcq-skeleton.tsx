@@ -13,7 +13,7 @@ export const MCQSkeleton = () => {
 
   return (
     <div className="flex flex-row items-center text-md leading-none text-zinc-500">
-      Generating questions{dots}
+      Generating Quiz {dots}
     </div>
   );
 };

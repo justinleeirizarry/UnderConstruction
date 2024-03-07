@@ -94,6 +94,20 @@ export function MCQ({
               Next Question
             </Button>
           ) : null}
+          {isAnswerCorrect == false ? (
+            <Button
+              className="mt-2 bg-[#EE702C]"
+              onClick={async () => {
+                const response = await submitUserMessage(`Ask me another MCQ`);
+                setMessages((currentMessages) => [
+                  ...currentMessages,
+                  response,
+                ]);
+              }}
+            >
+              Justin Would have answered right.
+            </Button>
+          ) : null}
         </div>
       </CardContent>
     </Card>

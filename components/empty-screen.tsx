@@ -8,16 +8,16 @@ const exampleMessages = [
     message: "Who is Justin Irizarry?",
   },
   {
+    heading: "Does he have a dog?",
+    message: "I want to see pictures of coco.",
+  },
+  {
     heading: "What coding languages does Justin know?",
     message: "What coding languages does Justin know?",
   },
   {
-    heading: "I want to learn about Typescript?",
-    message: "give me a test about Typescript?",
-  },
-  {
-    heading: "Does he have a dog?",
-    message: "I want to see pictures of coco?",
+    heading: "I want to answer questions about Typescript",
+    message: "give me a test on Typescript?",
   },
 ];
 
@@ -28,7 +28,7 @@ export function EmptyScreen({
 }) {
   return (
     <div className="mx-auto max-w-2xl px-4">
-      <h1 className="  pt-8 text-5xl font-black ">
+      <h1 className="  pt-8 text-5xl font-black mb-4 ">
         Justin Irizarry{" "}
         <span className="text-xl text-muted-foreground ">is a</span>
       </h1>
@@ -38,8 +38,7 @@ export function EmptyScreen({
       </h2>
       <div className="rounded-3xl border  bg-background p-8 mb-4">
         <p className="mb-2 leading-normal text-muted-foreground">
-          This website is under construction. For now you can chat with my
-          resume.
+          This website is under construction. For now you can have a chat
         </p>
 
         <div className="mt-4 flex flex-col items-start space-y-2 mb-4">
