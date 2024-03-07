@@ -17,7 +17,7 @@ const exampleMessages = [
   },
   {
     heading: "Typescript Quiz?",
-    message: "give me a test on Typescript?",
+    message: "give me a quiz on Typescript?",
   },
 ];
 
