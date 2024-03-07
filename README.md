@@ -1,3 +1,9 @@
+
+  <img width="1434" alt="Screenshot 2024-03-07 at 4 38 33 PM" src="https://github.com/justinleeirizarry/UnderConstruction/assets/84113651/fdae2e75-f889-42a4-8a16-20d4cfe030bf">
+
+  
+  
+  
   <h1 align="center">Generative UI Portfolio for Justin Irizarry</h1>
 </a>
 
