@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const images = ["/coco.png", "/coco1.png", "/coco0.png", "/coco2.png"];
+const images = ["/coco.png", "/coco0.png", "/coco1.png", "/coco2.png"];
 
 const ImageComponent = () => {
   const [randomImage, setRandomImage] = useState("");

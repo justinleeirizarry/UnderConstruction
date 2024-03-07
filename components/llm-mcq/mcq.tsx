@@ -96,7 +96,7 @@ export function MCQ({
           ) : null}
           {isAnswerCorrect == false ? (
             <Button
-              className="mt-2 p-2 bg-[#EE702C] text-md"
+              className="mt-2 p-4 bg-[#EE702C] text-md"
               onClick={async () => {
                 const response = await submitUserMessage(`Ask me another MCQ`);
                 setMessages((currentMessages) => [
