@@ -7,7 +7,7 @@ import { UserMessage } from "@/components/llm-mcq/message";
 
 import { type AI } from "./action";
 import { ChatScrollAnchor } from "@/lib/hooks/chat-scroll-anchor";
-import { FooterText } from "@/components/footer";
+
 import Textarea from "react-textarea-autosize";
 import { useEnterSubmit } from "@/lib/hooks/use-enter-submit";
 import {
@@ -15,7 +15,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { IconArrowElbow, IconPlus } from "@/components/ui/icons";
+import { IconArrowElbow, IconCopy } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
 import { ChatList } from "@/components/chat-list";
 import { EmptyScreen } from "@/components/empty-screen";
@@ -132,7 +132,7 @@ export default function Page() {
                         window.location.reload();
                       }}
                     >
-                      <IconPlus />
+                      <IconCopy />
                       <span className="sr-only">New Chat</span>
                     </Button>
                   </TooltipTrigger>
