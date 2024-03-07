@@ -36,7 +36,7 @@ async function submitUserMessage(content: string) {
   );
 
   const completion = runOpenAICompletion(openai, {
-    model: "gpt-3.5-turbo",
+    model: "gpt-4-turbo-preview",
     stream: true,
     messages: [
       {
@@ -222,7 +222,7 @@ Keep a conversation tone.
         }),
       },
     ],
-    temperature: 0.5,
+    temperature: 0.8,
   });
 
   completion.onTextContent((content: string, isFinal: boolean) => {
