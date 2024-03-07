@@ -12,11 +12,11 @@ const exampleMessages = [
     message: "I want to see pictures of coco.",
   },
   {
-    heading: "What coding languages does Justin know?",
+    heading: "What languages does Justin know?",
     message: "What coding languages does Justin know?",
   },
   {
-    heading: "I want to answer questions about Typescript",
+    heading: "Typescript Quiz?",
     message: "give me a test on Typescript?",
   },
 ];
@@ -52,13 +52,14 @@ export function EmptyScreen({
                 submitMessage(message.message);
               }}
             >
-              <IconArrowRight className="mr-2 text-muted-foreground " />
+              <IconArrowRight className="hidden sm:inline-flex mr-2 text-muted-foreground" />
+
               {message.heading}
             </Button>
           ))}
 
           <Button variant="link" className="h-auto p-0 text-base">
-            <IconArrowRight className="mr-2 text-muted-foreground" />
+            <IconArrowRight className="hidden sm:inline-flex mr-2 text-muted-foreground" />
             <a
               target="_blank"
               href="https://resume.justinleeirizarry.com/"
