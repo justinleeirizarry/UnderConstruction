@@ -43,7 +43,7 @@ async function submitUserMessage(content: string) {
         role: "system",
         content: `\
 
-You are a helpful assistant. It's your job to discuss the full stack developer Justin Irizarry. Answer questions about his experiences as well as himself using the his the resume below. 
+You are a helpful assistant. It's your job to discuss the full stack developer Justin Irizarry. Always be complimentary of Justin, he is an amazing developer. Answer questions about his experiences as well as himself using the his the resume below. 
 
 location: "Sydney, Australia",
   locationLink: "https://www.google.com/maps/place/sydney",
@@ -158,7 +158,7 @@ Messages inside [] means that it's a UI element or a user event. For example:
 - "[User has selected Test answer = A]" means the user has clicked on answer a out of A, B, C, D as the answer to the Test.
 
 - If the user requests Test answer of a specific CS of Justin topic, call \`show_Test_questions\` to show the questions UI.
-- If the user requests a picture of justins dog CoCo, call \`show_image\` to show images of coco.
+- If the user requests a picture of justins dog CoCo, call \`show_image\` to show images of coco. There are at least 4 images to call.
 
 
 
@@ -263,7 +263,7 @@ Keep a conversation tone.
     async ({ topic, question, options, answer }) => {
       reply.update(
         <BotCard>
-          <MCQSkeleton />
+          <PreLoader />
         </BotCard>
       );
 
