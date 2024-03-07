@@ -31,7 +31,7 @@ export function MCQ({
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   return (
-    <Card className="w-full max-w-xl mx-auto p-4">
+    <Card className="w-full max-w-xl mx-auto p-4 ">
       <CardContent className="space-y-4">
         <div className="flex items-center space-x-2">
           <TagsIcon />
@@ -43,7 +43,7 @@ export function MCQ({
             {options.map((option) => (
               <button
                 key={option.id}
-                className="flex justify-between items-center cursor-pointer border border-gray-300 rounded-lg p-3 hover:bg-gray-100"
+                className="flex justify-between items-center cursor-pointer border border-gray-300 rounded-lg p-4 hover:bg-gray-100"
                 onClick={() => {
                   setSelectedOption(option.id);
                   if (answer == option.id) {
@@ -58,7 +58,7 @@ export function MCQ({
                 </span>
                 <div className="w-1/5 text-right">
                   {isAnswerCorrect == true && answer == option.id ? (
-                    <div className="flex flex-row items-center text-xs leading-none text-green-500 gap-2">
+                    <div className="flex flex-row items-center text-xs leading-none text-green-500 gap-2 p-4">
                       <CheckIcon /> <p>Correct</p>
                     </div>
                   ) : (
@@ -96,7 +96,7 @@ export function MCQ({
           ) : null}
           {isAnswerCorrect == false ? (
             <Button
-              className="mt-2 bg-[#EE702C] text-md"
+              className="mt-2 p-2 bg-[#EE702C] text-md"
               onClick={async () => {
                 const response = await submitUserMessage(`Ask me another MCQ`);
                 setMessages((currentMessages) => [
@@ -105,7 +105,7 @@ export function MCQ({
                 ]);
               }}
             >
-              Justin would have gotten this correct.
+              Justin would know.
             </Button>
           ) : null}
         </div>
